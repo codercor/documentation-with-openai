@@ -1,13 +1,19 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "index": {
+    "title": "Anasayfa"
+  },
   "about": {
-    "title": "About",
+    "title": "Hakkımızda",
     "type": "page"
   },
+  "kullanim-ornekleri": {
+    "title": "Kullanım Örnekleri"
+  },
+  "buyu-gucu-hesaplama": {
+    "title": "Büyü Gücü Hesaplama"
+  },
   "contact": {
-    "title": "Contact ↗",
+    "title": "İletişim ↗",
     "type": "page",
     "href": "https://twitter.com/shuding_",
     "newWindow": true

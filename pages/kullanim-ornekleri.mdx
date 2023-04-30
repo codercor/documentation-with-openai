@@ -1,0 +1,272 @@
+Tabii, işte bir kullanım örnekleri sayfası:
+
+# Kullanım Örnekleri
+
+Büyücülük Asaları API'sini kullanarak yapabileceğiniz bazı şeyler:
+
+## 1. Tüm Büyücülük Asalarını Listeleme
+
+Tüm büyücülük asalarını listeleyerek, büyücülük asaları hakkında genel bir fikir edinebilirsiniz. Bu, büyücülük asalarını araştırmak veya incelemek isteyen kullanıcılar için özellikle yararlıdır.
+
+```
+GET /asalar HTTP/1.1
+Host: api.buyculukasalari.com
+Authorization: Bearer {access_token}
+```
+
+Cevap:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "count": 20,
+    "next": "https://api.buyculukasalari.com/asalar?sayfa=3&limit=10",
+    "previous": "https://api.buyculukasalari.com/asalar?sayfa=1&limit=10",
+    "results": [
+        {
+            "id": "123",
+            "isim": "Çınar Ağacı Çekirdeği Asa",
+            "sahip": {
+                "ad": "Harry Potter",
+                "soyad": "Potter"
+            },
+            "ölçüler": {
+                "uzunluk": "30 cm",
+                "çap": "2.5 cm"
+            },
+            "ağaç": {
+                "isim": "Çınar Ağacı",
+                "özellikler": [
+                    "Güçlü ve dayanıklı",
+                    "Yaygın olarak kullanılır"
+                ]
+            }
+        },
+        ...
+    ]
+}
+```
+
+## 2. Belirli Bir Büyücülük Asasını Listeleme
+
+Belirli bir büyücülük asası hakkında daha fazla bilgi edinmek istiyorsanız, API'yi kullanarak bu bilgilere erişebilirsiniz.
+
+```
+GET /asalar/123 HTTP/1.1
+Host: api.buyculukasalari.com
+Authorization: Bearer {access_token}
+```
+
+Cevap:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "123",
+    "isim": "Çınar Ağacı Çekirdeği Asa",
+    "sahip": {
+        "ad": "Harry Potter",
+        "soyad": "Potter"
+    },
+    "ölçüler": {
+        "uzunluk": "30 cm",
+        "çap": "2.5 cm"
+    },
+    "ağaç": {
+        "isim": "Çınar Ağacı",
+        "özellikler": [
+            "Güçlü ve dayanıklı",
+            "Yaygın olarak kullanılır"
+        ]
+    }
+}
+```
+
+## 3. Büyücülük Asası Arama
+
+Bir kullanıcı, belirli bir büyücülük asası hakkında bilgi bulmak istediğinde, API'yi kullanarak arama yapabilirler.
+
+```
+GET /asalar?arama=Çınar HTTP/1.1
+Host: api.buyculukasalari.com
+Authorization: Bearer {access_token}
+```
+
+Cevap:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "count": 2,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": "123",
+            "isim": "Çınar Ağacı Çekirdeği Asa",
+            "sahip": {
+                "ad": "Harry Potter",
+                "soyad": "Potter"
+            },
+            "ölçüler": {
+                "uzunluk": "30 cm",
+                "çap": "2.5 cm"
+            },
+            "ağaç": {
+                "isim": "Çınar Ağacı",
+                "özellikler": [
+                    "Güçlü ve dayanıklı",
+                    "Yaygın olarak kullanılır"
+                ]
+            }
+        },
+        {
+            "id": "456",
+            "isim":"Çınar Ağacı Kabuğu Asa",
+            "sahip": {
+                "ad": "Hermione Granger",
+                "soyad": "Granger"
+            },
+            "ölçüler": {
+                "uzunluk": "28 cm",
+                "çap": "2 cm"
+            },
+            "ağaç": {
+                "isim": "Çınar Ağacı",
+                "özellikler": [
+                    "Güçlü ve dayanıklı",
+                    "Yaygın olarak kullanılır"
+                ]
+            }
+        }
+    ]
+}
+```
+
+## 4. Büyücülük Asası Ekleme
+
+API'yi kullanarak, yeni büyücülük asaları ekleyebilirsiniz.
+
+```
+POST /asalar HTTP/1.1
+Host: api.buyculukasalari.com
+Authorization: Bearer {access_token}
+Content-Type: application/json
+
+{
+    "isim": "Meşe Ağacı Kabuğu Asa",
+    "sahip": {
+        "ad": "Ron Weasley",
+        "soyad": "Weasley"
+    },
+    "ölçüler": {
+        "uzunluk": "32 cm",
+        "çap": "2.5 cm"
+    },
+    "ağaç": {
+        "isim": "Meşe Ağacı",
+        "özellikler": [
+            "Sağlam ve dayanıklı",
+            "Kötü büyüler için iyi bir seçenek"
+        ]
+    }
+}
+```
+
+Cevap:
+
+```
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "id": "789",
+    "isim": "Meşe Ağacı Kabuğu Asa",
+    "sahip": {
+        "ad": "Ron Weasley",
+        "soyad": "Weasley"
+    },
+    "ölçüler": {
+        "uzunluk": "32 cm",
+        "çap": "2.5 cm"
+    },
+    "ağaç": {
+        "isim": "Meşe Ağacı",
+        "özellikler": [
+            "Sağlam ve dayanıklı",
+            "Kötü büyüler için iyi bir seçenek"
+        ]
+    }
+}
+```
+
+## 5. Büyücülük Asası Güncelleme
+
+Bir kullanıcı, sahip oldukları bir büyücülük asasının özelliklerini güncellemek isteyebilirler.
+
+```
+PUT /asalar/123 HTTP/1.1
+Host: api.buyculukasalari.com
+Authorization: Bearer {access_token}
+Content-Type: application/json
+
+{
+    "isim": "Çınar Ağacı Kabuğu Asa",
+    "ölçüler": {
+        "uzunluk": "31 cm",
+        "çap": "2.3 cm"
+    }
+}
+```
+
+Cevap:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "123",
+    "isim": "Çınar Ağacı Kabuğu Asa",
+    "sahip": {
+        "ad": "Harry Potter",
+        "soyad": "Potter"
+    },
+    "ölçüler": {
+        "uzunluk": "31 cm",
+        "çap": "2.3 cm"
+    },
+    "ağaç": {
+        "isim": "Çınar Ağacı",
+        "özellikler": [
+            "Güçlü ve dayanıklı",
+            "Yaygın olarak kullanılır"
+        ]
+    }
+}
+```
+
+## 6. Büyücülük Asası Silme
+
+Kullanıcılar, sahip oldukları büyücülük asalarını silmek isteyebilirler.
+
+```
+DELETE /asalar/123 HTTP/1.1
+Host: api.buyculukasalari.com
+Authorization: Bearer {access_token}
+```
+
+Cevap:
+
+```
+HTTP/1.1 204 No Content
+``` 
+
+Bu örnekler, API'nin ne kadar esnek olduğunu ve birçok kullanım senaryosuna uygun olduğunu göstermektedir. Kullanıcıların büyücülük asalarını hızlı bir şekilde
+araştırmasına ve doğru bilgilere erişmesine olanak tanıyan API çağrılarına sahiptir. Bu örnekler aynı zamanda, API'nin doğru bir şekilde belgelenmesinin ve kullanıcıların API'yi kolayca anlamasının ne kadar önemli olduğunu da göstermektedir.

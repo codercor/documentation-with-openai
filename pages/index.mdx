@@ -1,11 +1,58 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+Tabii, işte bir örnek Quick Start kısmı:
 
-## What is Nextra?
+# Büyücülük Asaları API Dökümantasyonu
 
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
+import {Search} from '../theme.config'
 
-## Documentation
+<Search/>
 
-The documentation is available at [https://nextra.site](https://nextra.site).
+Bu API, Harry Potter evrenindeki büyücülük asaları hakkında bilgi sağlar. Bu döküman, bu API'nin nasıl kullanılacağına dair açıklamalar ve örnekler içermektedir.
+
+## Hızlı Başlangıç
+
+API'ye erişmek için aşağıdaki adımları izleyebilirsiniz:
+
+1. API'ye erişim anahtarınızı almak için yönetici ile iletişime geçin.
+2. API isteklerinizi yapmak için bir HTTP istemcisi kullanarak API endpoint'leri çağırabilirsiniz.
+3. API endpoint'leri, JSON formatında cevap verir.
+
+Örnek bir GET isteği:
+
+```
+GET /asalar/123 HTTP/1.1
+Host: api.buyculukasalari.com
+Authorization: Bearer {access_token}
+```
+
+Bu istek büyücülük asası ID'si "123" olan büyücülük asası hakkında bilgi sağlayacak. 
+
+Cevap şöyle olacaktır:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "123",
+    "isim": "Çınar Ağacı Çekirdeği Asa",
+    "sahip": {
+        "ad": "Harry Potter",
+        "soyad": "Potter"
+    },
+    "ölçüler": {
+        "uzunluk": "30 cm",
+        "çap": "2.5 cm"
+    },
+    "ağaç": {
+        "isim": "Çınar Ağacı",
+        "özellikler": [
+            "Güçlü ve dayanıklı",
+            "Yaygın olarak kullanılır"
+        ]
+    }
+}
+```
+
+Bu cevap büyücülük asası hakkında bilgi içerir, örneğin sahibi, ölçüleri ve ağacı hakkında bilgi gibi.
+
+API'nin diğer endpoint'lerini keşfetmek için API belgelerine başvurabilirsiniz.
