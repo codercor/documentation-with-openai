@@ -1,23 +1,11 @@
-# Nextra Docs Template 
+# Harry Potter Smart Docs
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
-
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
-
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
-
-## Quick Start
-
-Click the button to clone this repository and deploy it on Vercel:
-
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+This is a trial for the development of smart documentation with Openai. You can ask a question about the document in only the documentation content context.
+#### (Document Created by OpenAI ChatGTP about Harry Potter Magic Calculations)
+This is a trial project for usign Embedbase vectordb and chatgpt api.
 
 ## Local Development
-
 First, run `pnpm i` to install the dependencies.
-
 Then, run `pnpm dev` to start the development server and visit localhost:3000.
-
 ## License
-
 This project is licensed under the MIT License.
